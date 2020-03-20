@@ -2,9 +2,8 @@ import numpy as np
 from threading import Thread
 import random
 
-class DataMessenger():
+class PrepareKeyPairItemUsingRanges():
     def __init__(self, meta, batch_size, train_on):
-        self.Bucket = meta['bucket']
         self.train_num = meta['train_n']
         self.test_num = meta['test_n']
         self.batch_size = batch_size
@@ -15,7 +14,6 @@ class DataMessenger():
         self.key = 0
 
         self.train_on = train_on
-        #self.autogen = AutoCaching(self.train_set, self.Bucket, "True", self.train_num)
         self.on_epoch_end()
 
     def __len__(self):

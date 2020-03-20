@@ -8,7 +8,7 @@ import random
 s3cli = boto3.client('s3')
 s3res = boto3.resource('s3')
 faas = boto3.client('lambda')
-class AutoCaching():
+class PrePareCacheService():
     def __init__(self, meta, host, lambda_handler, train_on):
         self.Bucket = meta['bucket']
         self.train_num = meta['train_n']
@@ -66,7 +66,7 @@ class AutoCaching():
 
         return
 
-    def autogen_run(self, ranges, keys):
+    def thread_run(self, ranges, keys):
         #print("Made by hjkim Threading to generate data")
         if self.train_on == True:
             th1 = Thread(target=self._train_worker, args=(ranges, keys))
@@ -76,4 +76,4 @@ class AutoCaching():
         th1.join()
         start = time.time()
         #print("[{}]Done ! ranges : {}".format(time.time() - start, ranges))
-        return 677
+        return 200
