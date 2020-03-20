@@ -24,8 +24,8 @@ class PrePareCacheService():
 
     def _generate_trainset(self, idx, key):
         '''
-        idx : train dataset index number
-        key : to store key name in memcached.
+        idx : image_idx
+        key : cache_idx
         '''
         _,_, label, imgname = self.train_set[idx].split("/")
         parameter = {"bucket_name": self.Bucket,

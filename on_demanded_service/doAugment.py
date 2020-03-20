@@ -8,6 +8,11 @@ import os, sys
 import time
 
 def do_augmentation(Host='aws.elasticache.endpoint:11211', Train_on=True, invocation_name="lambda", r=3):
+    '''
+    HOST : Memcached Host
+    Train_on : is train ?
+    invocation_name : lambda function name
+    '''
 
     s3cli = boto3.client('s3')
     cifar10_meta_name = "./cifar10.meta.s3"
